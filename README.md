@@ -1,4 +1,4 @@
-# <span style="color:blue">p</span>search
+# psearch
 
 ## psearch is a simple text search against files on the command line
 
