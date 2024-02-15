@@ -16,10 +16,8 @@ int main (int argc, char* argv[]) {
 
     // where we will store results of our search with line numbers
     std::string psearchResult;
-
     // read from users file
     std::ifstream userFile(argv[2]);
-
     // Implementing a simple linear search for now.
     int patternLen = strlen(argv[1]);
     char patternFirstChar = argv[1][0];
