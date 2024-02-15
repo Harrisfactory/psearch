@@ -4,8 +4,8 @@
 
 ### Install on macOS
 
-1: clone repo
-2: alias psearch="{enter-path-to-psearch-executable}/psearch"
+1: clone repo  
+2: alias psearch="{enter-path-to-psearch-executable}/psearch"  
 
 ### How to use
 
