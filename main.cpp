@@ -5,21 +5,7 @@
 // using string header allows me to manipulate strings & arrays easier
 #include <string>
 
-// argc gets the count of arguments passed in from user
-// argv is the arguments themselves
-int main (int argc, char* argv[]) {
-    // I just want the first argument for the path
-    if (argc != 3) {
-        std::cout << "This command only accepts a pattern & a file path as arguments \n";
-        return -1;
-    }
-
-    std::string searchPattern = argv[1];
-    int patternLen = searchPattern.length();
-    std::string userFileString = argv[2];
-
-    // where we will store results of our search with line numbers
-    std::string psearchResult;
+void linear_search(std::string searchPattern, int patternLen, std::string userFileString, std::string psearchResult) {
     // read from users file
     std::ifstream userFile(userFileString);
     // Implementing a simple linear search for now.
@@ -37,7 +23,24 @@ int main (int argc, char* argv[]) {
             }
         }
     }
-
     // closing the file to be memory safe
     userFile.close();
+}
+
+// argc gets the count of arguments passed in from user
+// argv is the arguments themselves
+int main (int argc, char* argv[]) {
+    // I just want the first argument for the path
+    if (argc != 3) {
+        std::cout << "This command only accepts a pattern & a file path as arguments \n";
+        return -1;
+    }
+
+    std::string searchPattern = argv[1];
+    int patternLen = searchPattern.length();
+    std::string userFileString = argv[2];
+    // where we will store results of our search with line numbers
+    std::string psearchResult;
+
+    linear_search(searchPattern, patternLen, userFileString, psearchResult);
 }
