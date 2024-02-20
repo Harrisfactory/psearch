@@ -14,13 +14,16 @@ int main (int argc, char* argv[]) {
         return -1;
     }
 
+    std::string searchPattern = argv[1];
+    int patternLen = searchPattern.length();
+    std::string userFileString = argv[2];
+
     // where we will store results of our search with line numbers
     std::string psearchResult;
     // read from users file
-    std::ifstream userFile(argv[2]);
+    std::ifstream userFile(userFileString);
     // Implementing a simple linear search for now.
-    int patternLen = strlen(argv[1]);
-    char patternFirstChar = argv[1][0];
+    char patternFirstChar = searchPattern[0];
     int lineCtr = 0;
     while (getline (userFile, psearchResult)) {
         lineCtr++;
@@ -28,7 +31,7 @@ int main (int argc, char* argv[]) {
         for (int i = 0; i < psearchResult.length(); i++) {
             if (psearchResult[i] == patternFirstChar) {
                 //check substring of pattern len
-                if (psearchResult.substr(i, patternLen) == argv[1]) {
+                if (psearchResult.substr(i, patternLen) == searchPattern) {
                     std::cout << "result found on line: " << lineCtr << " line contents: " << psearchResult << "\n";
                 }
             }
