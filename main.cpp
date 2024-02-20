@@ -54,7 +54,7 @@ void two_pointer_search(std::string searchPattern, int patternLen, std::string u
         //place pointers at both ends of each line and iterate and compare inward
         int left = 0;
         int right = psearchResult.length();
-        while (left < right && left + patternLen + 1 < right - patternLen - 1) {
+        while (left < right && left + patternLen < right - patternLen) {
             //checks left side
             if (psearchResult[left] == patternFirstChar) {
                 //check substring of pattern len
@@ -72,16 +72,6 @@ void two_pointer_search(std::string searchPattern, int patternLen, std::string u
             }
             left++;
             right--;
-        }
-
-
-        for (int i = 0; i < psearchResult.length(); i++) {
-            if (psearchResult[i] == patternFirstChar) {
-                //check substring of pattern len
-                if (psearchResult.substr(i, patternLen) == searchPattern) {
-                    std::cout << "result found on line: " << lineCtr << " line contents: " << psearchResult << "\n";
-                }
-            }
         }
     }
     // closing the file to be memory safe
